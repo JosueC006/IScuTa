@@ -6,7 +6,7 @@
 </p>
 
 <blockquote>
-A prevenção começa na informação — informe-se, ajude-se, aplicação orientada a Acessibilidade, Segurança e ao Acolhimento.
+A prevenção começa na informação — aplicação orientada a Acessibilidade, Segurança e ao Acolhimento.
 </blockquote>
 
 ---
