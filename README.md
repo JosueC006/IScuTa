@@ -13,7 +13,7 @@ A prevenção começa na informação — aplicação viesada a Acessibilidade, 
 
 <h2>📝 Sobre o Projeto</h2>
 
-IScuTa é uma healthtech que combate a desinformação entre jovens de 14 a 25 anos sobre IST's (infecções sexualmente transmissíveis) com uma jornada de prevenção gamificada e privada. Ensinando sobre PrEP e PEP via vídeos e quizzes, possui um chatbot confidencial, geolocalização para postos de saúde e agenda de exames. 
+IScuTa é uma healthtech que engaja eventos e impulsiona o combate a desinformação entre jovens de 14 a 25 anos sobre IST's (infecções sexualmente transmissíveis) com uma jornada de prevenção gamificada e privada. Ensinando sobre PrEP e PEP via vídeos e quizzes, possui um chatbot confidencial, geolocalização para postos de saúde e agenda de exames. 
 
 Este projeto está sendo desenvolvido de forma colaborativa dentro do ecossistema do programa de inovação territorial Recife Resolve. Nosso objetivo primordial é entregar uma solução robusta, escalável e com impacto real na sociedade que forneça uma acessibilidade maior, uma plataforma segura e acolhedora para com os usuários 
 
