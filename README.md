@@ -63,9 +63,9 @@ Conheça as pessoas por trás do desenvolvimento desta ferramenta:
     <th>Github</th>
   </tr>
    <tr>
-    <td></td>
+    <td><img src="https://github.com/hideapisizy.png" width="50"></td>
     <td>Luizy Drielly da Silva Moura</td>
-    <td></td>
+    <td><a href="https://github.com/hideapisizy">hideapisizy</a></td>
   </tr>
   <tr>
     <td><img src="https://github.com/cecilialopess.png" width="50"></td>
