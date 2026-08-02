@@ -1,0 +1,22 @@
+services:
+
+  postgres:
+    image: postgres:17
+
+    container_name: iscuta-postgres
+
+    restart: always
+
+    environment:
+      POSTGRES_DB: iscuta
+      POSTGRES_USER: iscuta
+      POSTGRES_PASSWORD: 123456
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
