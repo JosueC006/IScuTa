@@ -1,6 +1,7 @@
 package br.edu.backend.dto.unidade;
 
 import br.edu.backend.entity.UnidadeSaude;
+import jakarta.validation.constraints.NotBlank;
 
 public record UnidadeSaudeResponseDTO(
 
@@ -10,13 +11,15 @@ public record UnidadeSaudeResponseDTO(
 
         String numero,
 
+        String cep,
+
         String logradouro,
 
         String bairro,
 
         String cidade,
 
-        String estado,
+        String uf,
 
         String telefone,
 
@@ -37,10 +40,11 @@ public record UnidadeSaudeResponseDTO(
                 unidade.getId().toString(),
                 unidade.getNome(),
                 unidade.getNumero(),
+                unidade.getCep(),
                 unidade.getLogradouro(),
                 unidade.getBairro(),
                 unidade.getCidade(),
-                unidade.getEstado(),
+                unidade.getUf(),
                 unidade.getTelefone(),
                 unidade.getHorarioFuncionamento(),
                 unidade.getRealizaTesteRapido(),

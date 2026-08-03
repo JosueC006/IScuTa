@@ -11,16 +11,7 @@ public record UnidadeSaudeCreateDTO(
         String numero,
 
         @NotBlank
-        String logradouro,
-
-        @NotBlank
-        String bairro,
-
-        @NotBlank
-        String cidade,
-
-        @NotBlank
-        String estado,
+        String cep,
 
         @NotBlank
         String telefone,

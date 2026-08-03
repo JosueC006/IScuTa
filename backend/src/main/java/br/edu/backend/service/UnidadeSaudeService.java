@@ -1,6 +1,7 @@
 package br.edu.backend.service;
 
 import br.edu.backend.dto.CoordenadaDTO;
+import br.edu.backend.dto.ViaCepResponseDTO;
 import br.edu.backend.repository.UnidadeSaudeRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -18,10 +19,12 @@ public class UnidadeSaudeService {
 
     private final UnidadeSaudeRepository unidadeSaudeRepository;
     private final GeocodingService geocodingService;
+    private final ViaCepService viaCepService;
 
-    public UnidadeSaudeService(UnidadeSaudeRepository unidadeRepository, GeocodingService geocodingService){
+    public UnidadeSaudeService(UnidadeSaudeRepository unidadeRepository, GeocodingService geocodingService, ViaCepService viaCepService){
         this.unidadeSaudeRepository = unidadeRepository;
         this.geocodingService = geocodingService;
+        this.viaCepService = viaCepService;
     }
 
     @Transactional
@@ -45,21 +48,26 @@ public class UnidadeSaudeService {
 
         UnidadeSaude unidade = new UnidadeSaude();
 
-        unidade.setNome(dto.nome());
+        ViaCepResponseDTO endereco =
+                viaCepService.buscar(dto.cep());
+
         CoordenadaDTO coordenada =
                 geocodingService.buscar(
+                        endereco.logradouro(),
                         dto.numero(),
-                        dto.logradouro(),
-                        dto.bairro(),
-                        dto.cidade(),
-                        dto.estado()
+                        endereco.bairro(),
+                        endereco.localidade(),
+                        endereco.uf()
                 );
 
+        unidade.setNome(dto.nome());
         unidade.setNumero(dto.numero());
-        unidade.setLogradouro(dto.logradouro());
-        unidade.setBairro(dto.bairro());
-        unidade.setCidade(dto.cidade());
-        unidade.setEstado(dto.estado());
+        unidade.setCep(dto.cep());
+        unidade.setLogradouro(endereco.logradouro());
+        unidade.setBairro(endereco.bairro());
+        unidade.setCidade(endereco.localidade());
+        unidade.setUf(endereco.uf());
+
         unidade.setLatitude(coordenada.latitude());
         unidade.setLongitude(coordenada.longitude());
         unidade.setTelefone(dto.telefone());
@@ -79,12 +87,25 @@ public class UnidadeSaudeService {
         UnidadeSaude unidade = unidadeSaudeRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Unidade não encontrada"));
 
-        unidade.setNome(dto.nome());
+        ViaCepResponseDTO endereco =
+                viaCepService.buscar(dto.cep());
+
+        CoordenadaDTO coordenada =
+                geocodingService.buscar(
+                        dto.numero(),
+                        endereco.logradouro(),
+                        endereco.bairro(),
+                        endereco.localidade(),
+                        endereco.uf()
+                );
+
         unidade.setNumero(dto.numero());
-        unidade.setLogradouro(dto.logradouro());
-        unidade.setBairro(dto.bairro());
-        unidade.setCidade(dto.cidade());
-        unidade.setEstado(dto.estado());
+        unidade.setCep(dto.cep());
+
+        unidade.setLogradouro(endereco.logradouro());
+        unidade.setBairro(endereco.bairro());
+        unidade.setCidade(endereco.localidade());
+        unidade.setUf(endereco.uf());
 
         unidade.setTelefone(dto.telefone());
         unidade.setHorarioFuncionamento(dto.horarioFuncionamento());
@@ -94,14 +115,6 @@ public class UnidadeSaudeService {
         unidade.setOferecePep(dto.oferecePep());
 
         unidade.setAtiva(dto.ativa());
-
-        CoordenadaDTO coordenada = geocodingService.buscar(
-                dto.numero(),
-                dto.logradouro(),
-                dto.bairro(),
-                dto.cidade(),
-                dto.estado()
-        );
 
         unidade.setLatitude(coordenada.latitude());
         unidade.setLongitude(coordenada.longitude());
