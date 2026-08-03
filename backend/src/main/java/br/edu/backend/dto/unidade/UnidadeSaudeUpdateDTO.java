@@ -6,13 +6,7 @@ public record UnidadeSaudeUpdateDTO(
 
         String numero,
 
-        String logradouro,
-
-        String bairro,
-
-        String cidade,
-
-        String estado,
+        String cep,
 
         String telefone,
 

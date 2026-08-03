@@ -26,6 +26,9 @@ public class UnidadeSaude {
     private String numero;
 
     @Column(nullable = false)
+    private String cep;
+
+    @Column(nullable = false)
     private String logradouro;
 
     @Column(nullable = false)
@@ -35,7 +38,7 @@ public class UnidadeSaude {
     private String cidade;
 
     @Column(nullable = false)
-    private String estado;
+    private String uf;
 
     @Column(nullable = false)
     private String telefone;
@@ -46,6 +49,7 @@ public class UnidadeSaude {
     @Column(nullable = false)
     private Boolean ativa = true;
 
+    //verificar depois sobre essses atributos
     private Boolean realizaTesteRapido;
 
     private Boolean oferecePrep;
