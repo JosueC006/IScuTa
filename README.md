@@ -40,9 +40,13 @@ Este projeto utiliza a arquitetura Monorepo e abaixo estão listadas os recursos
     <td>Banco de Dados</td>
     <td>PostgreSQL</td>
   </tr>
+     <tr>
+    <td>ORM</td>
+    <td>Hibernate + JPA</td>
+  </tr>
    <tr>
-    <td>Autenticação</td>
-    <td>JWT</td>
+    <td>Infra</td>
+    <td> Docker & Docker Compose</td>
   </tr>
 </table>
 
@@ -88,3 +92,23 @@ Conheça as pessoas por trás do desenvolvimento desta ferramenta:
     <td><a href="https://github.com/D4n1el20">D4n1el20</a></td>
   </tr>
 </table>
+
+---
+
+<h2>Primeiros Passos (Instalação e Configuração)</h2>
+
+1. **Clone o repositório:**
+```bash
+git clone [https://github.com/cecilialopess/IScuTa.git]([https://github.com/cecilialopess/IScuTa.git](https://github.com/cecilialopess/IScuTa.git)
+cd IScuTa
+```
+
+2. **Inicie a infraestrutura do Database:**
+```bash
+docker-compose up -d
+```
+
+3. **Execute a aplicação (local dev is default):**
+```bash
+./mvnw spring-boot:run
+```
