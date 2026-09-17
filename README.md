@@ -21,7 +21,7 @@ Este projeto está sendo desenvolvido de forma colaborativa dentro do ecossistem
 
 <h2>Stack Tecnológica</h2>
 
-Este projeto utiliza a arquitetura Monorepo e abaixo estão listadas os recursos tecnológicas:
+Este projeto utiliza a arquitetura Monorepo organizado em arquitetura em camadas e abaixo estão listadas os recursos tecnológicas:
 
 <table>
   <tr>
