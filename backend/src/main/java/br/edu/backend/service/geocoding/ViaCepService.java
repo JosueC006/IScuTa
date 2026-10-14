@@ -1,6 +1,6 @@
-package br.edu.backend.service;
+package br.edu.backend.service.geocoding;
 
-import br.edu.backend.dto.ViaCepResponseDTO;
+import br.edu.backend.dto.geocoding.ViaCepResponseDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 

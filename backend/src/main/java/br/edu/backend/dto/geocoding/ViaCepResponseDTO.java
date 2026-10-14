@@ -1,4 +1,4 @@
-package br.edu.backend.dto;
+package br.edu.backend.dto.geocoding;
 
 public record ViaCepResponseDTO(
 
