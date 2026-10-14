@@ -1,8 +1,10 @@
 package br.edu.backend.service;
 
-import br.edu.backend.dto.CoordenadaDTO;
-import br.edu.backend.dto.ViaCepResponseDTO;
+import br.edu.backend.dto.geocoding.CoordenadaDTO;
+import br.edu.backend.dto.geocoding.ViaCepResponseDTO;
 import br.edu.backend.repository.UnidadeSaudeRepository;
+import br.edu.backend.service.geocoding.GeocodingService;
+import br.edu.backend.service.geocoding.ViaCepService;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

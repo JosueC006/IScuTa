@@ -1,7 +1,7 @@
-package br.edu.backend.service;
+package br.edu.backend.service.geocoding;
 
-import br.edu.backend.dto.CoordenadaDTO;
-import br.edu.backend.dto.NominatimResponseDTO;
+import br.edu.backend.dto.geocoding.CoordenadaDTO;
+import br.edu.backend.dto.geocoding.NominatimResponseDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
