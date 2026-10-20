@@ -1,0 +1,61 @@
+-- UNIDADES REAIS MOCKADAS
+
+{
+  "nome": "Policlínica e Maternidade Professor Arnaldo Marques",
+  "numero": "S/n",
+  "cep": "51230000",
+  "telefone": "Indisponível",
+  "horarioFuncionamento": "Aberto 24h",
+  "realizaTesteRapido": true,
+  "oferecePrep": false,
+  "oferecePep": true,
+  "ativa": true
+}
+
+{
+  "nome": "Unidade de Saúde da Família Rio Pajeú",
+  "numero": "108",
+  "cep": "51230325",
+  "telefone": "(81)93338-7768"
+  "horarioFuncionamento": "07:00 – 19:00",
+  "realizaTesteRapido": true,
+  "oferecePrep": true,
+  "oferecePep": false,
+  "ativa": true
+}
+
+{
+  "nome": "UPA Ibura",
+  "numero": "S/n",
+  "cep": "51320180",
+  "telefone": "string",
+  "horarioFuncionamento": "Aberto 24h",
+  "realizaTesteRapido": true,
+  "oferecePrep": false,
+  "oferecePep": false,
+  "ativa": true
+}
+
+{
+  "nome": "Unidade de Saúde da Vila do Sesi",
+  "numero": "217",
+  "cep": "51230250",
+  "telefone": "(81)93355-6246",
+  "horarioFuncionamento": "07:00 – 19:00",
+  "realizaTesteRapido": true,
+  "oferecePrep": false,
+  "oferecePep": false,
+  "ativa": true
+}
+
+{
+  "nome": "UPAE Ibura",
+  "numero": "116",
+  "cep": "51230000",
+  "telefone": "indisponível",
+  "horarioFuncionamento": "06:00 – 17:00h",
+  "realizaTesteRapido": true,
+  "oferecePrep": false,
+  "oferecePep": false,
+  "ativa": true
+}
