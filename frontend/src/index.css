@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-scale: 1rem;
+  }
+
+  html {
+    font-size: var(--font-scale);
+    scroll-behavior: smooth;
+  }
+
+  /* Foco visível obrigatório para acessibilidade WCAG 2.4.7 */
+  :focus-visible {
+    outline: 2px solid #0d9488 !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Suporte a Alto Contraste */
+  html.contrast-more {
+    filter: contrast(125%);
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html.dark body {
+    background-color: #0b0f17;
+    color: #f1f5f9;
+  }
+}
+
+/* Tamanhos de Fonte Dinâmicos */
+html[data-font-size="normal"] {
+  --font-scale: 1rem;
+}
+
+html[data-font-size="large"] {
+  --font-scale: 1.125rem;
+}
+
+html[data-font-size="larger"] {
+  --font-scale: 1.25rem;
+}
+
+/* Leaflet Overrides para acessibilidade */
+.leaflet-container {
+  font-family: inherit !important;
+  z-index: 10;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+
+/* Tipografia de Markdown de Cartilhas */
+.cartilha-content h1 {
+  @apply text-2xl font-bold text-slate-900 dark:text-white mt-6 mb-3;
+}
+.cartilha-content h2 {
+  @apply text-xl font-bold text-slate-800 dark:text-slate-100 mt-5 mb-2.5 pb-1 border-b border-slate-200 dark:border-slate-800;
+}
+.cartilha-content h3 {
+  @apply text-lg font-semibold text-slate-800 dark:text-slate-200 mt-4 mb-2;
+}
+.cartilha-content p {
+  @apply text-slate-700 dark:text-slate-300 leading-relaxed mb-4;
+}
+.cartilha-content ul {
+  @apply list-disc list-inside space-y-1.5 mb-4 text-slate-700 dark:text-slate-300;
+}
+.cartilha-content ol {
+  @apply list-decimal list-inside space-y-1.5 mb-4 text-slate-700 dark:text-slate-300;
+}
+.cartilha-content strong {
+  @apply font-bold text-slate-900 dark:text-white;
+}
+.cartilha-content blockquote {
+  @apply border-l-4 border-brand-500 pl-4 py-1 italic bg-brand-50/50 dark:bg-slate-800/50 rounded-r my-4;
+}
+
