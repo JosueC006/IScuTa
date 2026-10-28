@@ -21,11 +21,13 @@ public class ProgramacaoAviso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private LocalDate data;
 
-    @Column(nullable = false)
-    private LocalTime horario;
+    private LocalTime horarioInicio;
+
+    private LocalTime horarioFim;
+
+    private String local;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "aviso_id", nullable = false)

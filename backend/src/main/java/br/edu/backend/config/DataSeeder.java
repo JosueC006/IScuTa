@@ -46,7 +46,9 @@ public class DataSeeder implements CommandLineRunner {
 
             var programacao = new ProgramacaoAviso();
             programacao.setData(LocalDate.of(2026, 11, 10));
-            programacao.setHorario(LocalTime.of(8, 0));
+            programacao.setHorarioInicio(LocalTime.of(8, 0));
+            programacao.setHorarioFim(LocalTime.of(12, 0));
+            programacao.setLocal("COMPAZ Paulo Freire");
 
             a.addProgramacao(programacao);
 

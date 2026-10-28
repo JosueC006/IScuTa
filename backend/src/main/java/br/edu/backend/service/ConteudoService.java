@@ -90,14 +90,15 @@ public class ConteudoService {
         a.setTitulo(dto.titulo());
         a.setDescricao(dto.descricao());
         a.setTipo(dto.tipo());
-        a.setLocal(dto.local());
 
         for (var programacaoDTO : dto.programacoes()) {
 
             var programacao = new ProgramacaoAviso();
 
             programacao.setData(programacaoDTO.data());
-            programacao.setHorario(programacaoDTO.horario());
+            programacao.setHorarioInicio(programacaoDTO.horarioInicio());
+            programacao.setHorarioFim(programacaoDTO.horarioFim());
+            programacao.setLocal(programacaoDTO.local());
 
             a.addProgramacao(programacao);
         }
@@ -122,10 +123,11 @@ public class ConteudoService {
                 a.getProgramacoes().stream()
                         .map(p -> new ProgramacaoAvisoCreateDTO(
                                 p.getData(),
-                                p.getHorario()
+                                p.getHorarioInicio(),
+                                p.getHorarioFim(),
+                                p.getLocal()
                         ))
-                        .toList(),
-                a.getLocal()
+                        .toList()
         );
     }
 }

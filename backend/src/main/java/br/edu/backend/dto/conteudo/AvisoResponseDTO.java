@@ -16,7 +16,6 @@ public record AvisoResponseDTO(
 
         TipoAviso tipo,
 
-        List<ProgramacaoAvisoCreateDTO> programacoes,
+        List<ProgramacaoAvisoCreateDTO> programacoes
 
-        String local
 ) {}

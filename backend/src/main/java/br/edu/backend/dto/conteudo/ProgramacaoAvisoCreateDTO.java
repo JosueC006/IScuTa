@@ -11,5 +11,11 @@ public record ProgramacaoAvisoCreateDTO(
         LocalDate data,
 
         @NotNull
-        LocalTime horario
+        LocalTime horarioInicio,
+
+        @NotNull
+        LocalTime horarioFim,
+
+        @NotNull
+        String local
 ) {}

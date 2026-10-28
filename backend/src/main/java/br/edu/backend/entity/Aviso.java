@@ -36,9 +36,6 @@ public class Aviso {
     @OneToMany(mappedBy = "aviso", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProgramacaoAviso> programacoes = new ArrayList<>();
 
-    @Column(name = "local_evento")
-    private String local;
-
     private boolean ativo = true;
 
     public void addProgramacao(ProgramacaoAviso programacao) {
