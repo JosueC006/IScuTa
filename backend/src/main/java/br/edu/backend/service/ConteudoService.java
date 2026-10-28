@@ -2,10 +2,13 @@ package br.edu.backend.service;
 
 import br.edu.backend.dto.conteudo.*;
 import br.edu.backend.entity.Aviso;
+import br.edu.backend.entity.ProgramacaoAviso;
 import br.edu.backend.repository.AvisoRepository;
 import br.edu.backend.repository.CartilhaRepository;
 import br.edu.backend.repository.VideoRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -22,6 +25,7 @@ public class ConteudoService {
         this.cartilhas = cartilha; this.videos = video; this.avisos = aviso;
     }
 
+    @Transactional
     public List<CartilhaResumoDTO> listarCartilhas() {
         return cartilhas.findByPublicadoTrueOrderByTituloAsc().stream()
                 .map(c -> new CartilhaResumoDTO(c.getId(),
@@ -32,6 +36,7 @@ public class ConteudoService {
                 .toList();
     }
 
+    @Transactional
     public CartilhaDetalheDTO buscarCartilha(String slug) {
         var c = cartilhas.findBySlugAndPublicadoTrue(slug)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cartilha não encontrada"));
@@ -45,6 +50,15 @@ public class ConteudoService {
         );
     }
 
+    @Transactional
+    public void deletarCartilha(Long id){
+        var c = cartilhas.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cartilha não encontrada"));
+        c.setPublicado(false);
+        cartilhas.save(c);
+    }
+
+    @Transactional
     public List<VideoResponseDTO> listarVideos() {
         return videos.findByPublicadoTrueOrderByIdDesc().stream()
                 .map(v -> new VideoResponseDTO(v.getId(),
@@ -55,10 +69,20 @@ public class ConteudoService {
                 .toList();
     }
 
+    @Transactional
+    public void deletarVideo(Long id){
+        var c = videos.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Video não encontrada"));
+        c.setPublicado(false);
+        videos.save(c);
+    }
+
+    @Transactional
     public List<AvisoResponseDTO> listarAvisos() {
         return avisos.findVigentes().stream().map(this::toDto).toList();
     }
 
+    @Transactional
     public AvisoResponseDTO criarAviso(AvisoCreateDTO dto) {
 
         var a = new Aviso();
@@ -66,11 +90,27 @@ public class ConteudoService {
         a.setTitulo(dto.titulo());
         a.setDescricao(dto.descricao());
         a.setTipo(dto.tipo());
-        a.setDataInicio(dto.dataInicio());
-        a.setDataFim(dto.dataFim());
         a.setLocal(dto.local());
 
+        for (var programacaoDTO : dto.programacoes()) {
+
+            var programacao = new ProgramacaoAviso();
+
+            programacao.setData(programacaoDTO.data());
+            programacao.setHorario(programacaoDTO.horario());
+
+            a.addProgramacao(programacao);
+        }
+
         return toDto(avisos.save(a));
+    }
+
+    @Transactional
+    public void deletarAviso(Long id){
+        var c = avisos.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Aviso não encontrada"));
+        c.setAtivo(false);
+        avisos.save(c);
     }
 
     private AvisoResponseDTO toDto(Aviso a) {
@@ -79,10 +119,13 @@ public class ConteudoService {
                 a.getTitulo(),
                 a.getDescricao(),
                 a.getTipo(),
-                a.getDataInicio(),
-                a.getDataFim(),
+                a.getProgramacoes().stream()
+                        .map(p -> new ProgramacaoAvisoCreateDTO(
+                                p.getData(),
+                                p.getHorario()
+                        ))
+                        .toList(),
                 a.getLocal()
         );
     }
-
 }

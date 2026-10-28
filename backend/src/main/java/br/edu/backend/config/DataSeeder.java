@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Component
 public class DataSeeder implements CommandLineRunner {
@@ -40,9 +41,15 @@ public class DataSeeder implements CommandLineRunner {
             var a = new Aviso();
             a.setTitulo("Campanha de testagem (exemplo)");
             a.setDescricao("Aviso de exemplo.");
-            a.setTipo(TipoAviso.CAMPANHA);
-            a.setDataInicio(LocalDate.now());
-            a.setDataFim(LocalDate.now().plusDays(30));
+            a.setTipo(TipoAviso.MULTIRAO_TESTAGEM);
+            a.setAtivo(true);
+
+            var programacao = new ProgramacaoAviso();
+            programacao.setData(LocalDate.of(2026, 11, 10));
+            programacao.setHorario(LocalTime.of(8, 0));
+
+            a.addProgramacao(programacao);
+
             avisos.save(a);
         }
     }
@@ -58,5 +65,4 @@ public class DataSeeder implements CommandLineRunner {
 
         return c;
     }
-
 }
