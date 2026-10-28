@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface AvisoRepository extends JpaRepository<Aviso, Long> {
 
-    @Query("select a from Aviso a where a.ativo = true " +
-            "and (a.dataFim is null or a.dataFim >= current_date) order by a.dataInicio asc")
+    @Query("select distinct a from Aviso a left join a.programacoes p where a.ativo = true " +
+            "and p.data >= current_date order by a.id asc")
     List<Aviso> findVigentes();
 
 }

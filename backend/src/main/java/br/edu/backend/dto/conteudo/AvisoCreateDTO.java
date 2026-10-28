@@ -1,10 +1,12 @@
 package br.edu.backend.dto.conteudo;
 
+import br.edu.backend.entity.ProgramacaoAviso;
 import br.edu.backend.entity.enums.TipoAviso;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public record AvisoCreateDTO(
 
@@ -15,11 +17,8 @@ public record AvisoCreateDTO(
         @Size(max = 500)
         String descricao,
 
-        Enum<TipoAviso> tipo,
+        TipoAviso tipo,
 
-        LocalDate dataInicio,
+        List<ProgramacaoAvisoCreateDTO> programacoes
 
-        LocalDate dataFim,
-
-        String local
 ) {}

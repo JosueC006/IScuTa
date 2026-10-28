@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "aviso")
@@ -27,15 +29,18 @@ public class Aviso {
     @Column(length = 500)
     private String descricao;
 
-    private Enum<TipoAviso> tipo;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TipoAviso tipo;
 
-    private LocalDate dataInicio;
-
-    private LocalDate dataFim;
-
-    @Column(name = "local_evento")
-    private String local;
+    @OneToMany(mappedBy = "aviso", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProgramacaoAviso> programacoes = new ArrayList<>();
 
     private boolean ativo = true;
+
+    public void addProgramacao(ProgramacaoAviso programacao) {
+        programacoes.add(programacao);
+        programacao.setAviso(this);
+    }
 
 }

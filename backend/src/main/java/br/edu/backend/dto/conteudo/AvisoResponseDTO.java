@@ -1,8 +1,10 @@
 package br.edu.backend.dto.conteudo;
 
+import br.edu.backend.entity.ProgramacaoAviso;
 import br.edu.backend.entity.enums.TipoAviso;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public record AvisoResponseDTO(
 
@@ -12,11 +14,8 @@ public record AvisoResponseDTO(
 
         String descricao,
 
-        Enum<TipoAviso> tipo,
+        TipoAviso tipo,
 
-        LocalDate dataInicio,
+        List<ProgramacaoAvisoCreateDTO> programacoes
 
-        LocalDate dataFim,
-
-        String local
 ) {}
