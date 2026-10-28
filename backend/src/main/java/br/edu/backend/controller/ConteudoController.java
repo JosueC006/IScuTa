@@ -25,9 +25,15 @@ public class ConteudoController {
 
     @GetMapping("/cartilhas/{slug}") public CartilhaDetalheDTO cartilha(@PathVariable String slug) { return service.buscarCartilha(slug); }
 
+    @DeleteMapping("/cartilhas/{id}") public void deletarCartilha(@PathVariable Long id) { service.deletarCartilha(id); }
+
     @GetMapping("/videos") public List<VideoResponseDTO> videos() { return service.listarVideos(); }
 
+    @DeleteMapping("/videos/{id}") public void deletarVideo(@PathVariable Long id) {service.deletarVideo(id); }
+
     @GetMapping("/avisos") public List<AvisoResponseDTO> avisos() { return service.listarAvisos(); }
+
+    @DeleteMapping("/avisos/{id}") public void deletarAviso(@PathVariable Long id) {service.deletarAviso(id); }
 
     @PostMapping("/admin/avisos")
     public AvisoResponseDTO criarAviso(@RequestHeader("X-Admin-Token") String token,
@@ -35,5 +41,4 @@ public class ConteudoController {
         if (!adminToken.equals(token)) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
         return service.criarAviso(dto);
     }
-
 }
