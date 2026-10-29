@@ -28,7 +28,7 @@
   "nome": "UPA Ibura",
   "numero": "S/n",
   "cep": "51320180",
-  "telefone": "string",
+  "telefone": "Indisponivel",
   "horarioFuncionamento": "Aberto 24h",
   "realizaTesteRapido": true,
   "oferecePrep": false,
@@ -44,7 +44,7 @@
   "horarioFuncionamento": "07:00 – 19:00",
   "realizaTesteRapido": true,
   "oferecePrep": false,
-  "oferecePep": false,
+  "oferecePep": true,
   "ativa": true
 }
 
