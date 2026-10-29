@@ -91,16 +91,17 @@ public class ConteudoService {
         a.setDescricao(dto.descricao());
         a.setTipo(dto.tipo());
 
-        for (var programacaoDTO : dto.programacoes()) {
+        if (dto.programacoes() != null) {
+            for (var programacaoDTO : dto.programacoes()) {
+                var programacao = new ProgramacaoAviso();
 
-            var programacao = new ProgramacaoAviso();
+                programacao.setData(programacaoDTO.data());
+                programacao.setHorarioInicio(programacaoDTO.horarioInicio());
+                programacao.setHorarioFim(programacaoDTO.horarioFim());
+                programacao.setLocal(programacaoDTO.local());
 
-            programacao.setData(programacaoDTO.data());
-            programacao.setHorarioInicio(programacaoDTO.horarioInicio());
-            programacao.setHorarioFim(programacaoDTO.horarioFim());
-            programacao.setLocal(programacaoDTO.local());
-
-            a.addProgramacao(programacao);
+                a.addProgramacao(programacao);
+            }
         }
 
         return toDto(avisos.save(a));
