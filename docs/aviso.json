@@ -1,0 +1,46 @@
+{
+  "titulo": "Vamos Prevenir, Vamos Testar",
+  "descricao": "Campanha da Prefeitura do Recife que oferece testagem rápida, gratuita e sigilosa para HIV, sífilis e hepatites virais (B e C) com resultado em até 20 minutos",
+  "tipo": "MULTIRAO_TESTAGEM",
+  "programacoes": [
+    {
+      "data": "2026-10-31",
+      "horarioInicio": "08:30:00"
+      "horarioFim": "17:00:00",
+      "local": "Igreja Batista Missionária, Jardim São Paulo"
+    }
+    {
+      "data": "2026-10-31",
+      "horarioInicio": "08:30:00"
+      "horarioFim": "15:00:00",
+      "local": "Comunidade Fazendinha"
+    }
+     {
+      "data": "2026-10-31",
+      "horarioInicio": "08:30:00"
+      "horarioFim": "15:00:00",
+      "local": "Centro de Saúde Joaquim Cavalcanti, Cordeiro"
+    }
+  ]
+}
+
+{
+  "titulo": "PrEPara a Prevenção",
+  "descricao": "Estratégia da Prefeitura do Recife que oferece serviços gratuitos de saúde, testagem rápida e profilaxias pelo SUS",
+  "tipo": "MULTIRAO_TESTAGEM",
+  "programacoes": [
+    {
+      "data": "2026-10-31",
+      "horarioInicio": "08:00:00"
+      "horarioFim": "16:30:00",
+      "local": "Policlinica Arnaldo Marques, Ibura"
+    }
+  ]
+}
+
+{
+  "titulo": "Recife está vencendo a luta contra a Sífilis!",
+  "descricao":
+  "Por muito tempo Recife vem sofrendo com essa infecção que pode passar despercebida por um tempão, já que ela pode vir sem dor,sem sintoma e sem aviso. Porém estamos ganhando essa batalha, os casos de sífilis congênita caíram quase pela metade em 3 anos, de 538 para 274 casos! Eba! Junte-se a nós nessa luta e não deixe de se precaver e testar, afinal leva só 20 minutinhos!",
+  "tipo": "ALERTA_EPIDEMIOLOGICO",
+}
