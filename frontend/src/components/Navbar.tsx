@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-2.5 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-md p-1"
             aria-label="IScuTa - Página Inicial"
           >
-            <img src="/logo.png" alt="IScuTa" className="w-10 h-10 rounded-xl object-contain" />
+            <img src="/logo-iscuta.png" alt="IScuTa" className="w-13 h-12 rounded-xl object-contain" />
             <div className="flex flex-col">
               <span className="font-extrabold text-xl tracking-tight leading-none text-brand-700 dark:text-brand-400">
                 IScuTa
