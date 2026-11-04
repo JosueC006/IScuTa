@@ -9,7 +9,6 @@ import {
   ShieldAlert,
   Menu,
   X,
-  HeartHandshake,
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -40,9 +39,7 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-2.5 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-md p-1"
             aria-label="IScuTa - Página Inicial"
           >
-            <span className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 text-white flex items-center justify-center shadow-md">
-              <HeartHandshake className="w-6 h-6" aria-hidden="true" />
-            </span>
+            <img src="/logo-iscuta.png" alt="IScuTa" className="w-13 h-12 rounded-xl object-contain" />
             <div className="flex flex-col">
               <span className="font-extrabold text-xl tracking-tight leading-none text-brand-700 dark:text-brand-400">
                 IScuTa
