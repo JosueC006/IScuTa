@@ -9,7 +9,6 @@ import {
   ShieldAlert,
   Menu,
   X,
-  HeartHandshake,
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
